@@ -36,3 +36,13 @@ Invoke-LFLogged -Name "TestRun" -Context $ctx -ScriptBlock {
     Write-LFLog -Level Info -Message "Hello World" -Context $ctx -Data @{ Step = 1 }
 }
 ```
+
+## Running Tests
+
+```powershell
+Invoke-Pester .\tests
+```
+
+## Notes
+
+This project is intentionally written in a PowerShell 5.1-compatible style while aiming to remain usable in PowerShell 7+ as well.
