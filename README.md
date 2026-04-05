@@ -22,3 +22,17 @@ LoggableFunctions/
 ├── tests/
 └── examples/
 ```
+
+## Example
+
+```powershell
+Import-Module .\src\LoggableFunctions.psd1
+
+$ctx = New-LFContext -App "DemoApp"
+
+Set-LFLogger -Level Info -FilePath ".\log.txt"
+
+Invoke-LFLogged -Name "TestRun" -Context $ctx -ScriptBlock {
+    Write-LFLog -Level Info -Message "Hello World" -Context $ctx -Data @{ Step = 1 }
+}
+```
