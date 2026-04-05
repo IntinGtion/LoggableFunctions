@@ -1,5 +1,7 @@
 # LoggableFunctions
 
+[![CI](https://github.com/IntinGtion/LoggableFunctions/actions/workflows/ci.yml/badge.svg)](https://github.com/IntinGtion/LoggableFunctions/actions/workflows/ci.yml)
+
 A lightweight PowerShell logging and execution wrapper library.
 
 ## Why this project exists
@@ -45,6 +47,13 @@ Set-LFLogger -Level Info -FilePath ".\log.txt"
 Invoke-LFLogged -Name "TestRun" -Context $ctx -ScriptBlock {
     Write-LFLog -Level Info -Message "Hello World" -Context $ctx -Data @{ Step = 1 }
 }
+```
+
+## Example Output
+
+```text
+2026-04-05T23:19:52.1089313+02:00 [Info] START: SampleTask [App=TestApp] [CorrelationId=...]
+2026-04-05T23:19:52.1860449+02:00 [Info] END: SampleTask [App=TestApp] [CorrelationId=...] [Data=DurationMs=77.11]
 ```
 
 ## Demo Script

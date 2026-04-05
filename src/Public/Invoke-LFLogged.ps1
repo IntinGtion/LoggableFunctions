@@ -20,7 +20,9 @@ function Invoke-LFLogged {
         $duration = (Get-Date) - $start
         $durationMs = [math]::Round($duration.TotalMilliseconds, 2)
 
-        Write-LFLog -Level Info -Message "END: $Name" -Context $Context -Data @{ DurationMs = $durationMs }
+        $durationMsString = $durationMs.ToString([System.Globalization.CultureInfo]::InvariantCulture)
+
+        Write-LFLog -Level Info -Message "END: $Name" -Context $Context -Data @{ DurationMs = $durationMsString }
 
         return $result
     }
